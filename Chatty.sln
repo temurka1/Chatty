@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chatty.Protocol", "Chatty.Protocol\Chatty.Protocol.csproj", "{99AE8B0F-A9E7-40F1-8DFB-6ADE7274E835}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chatty.Server", "Chatty.Server\Chatty.Server.csproj", "{A8DE9E02-18C6-4071-9FA7-488B525CCD85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chatty.Client", "Chatty.Client\Chatty.Client.csproj", "{3323319E-C242-48A2-94BA-0EE0830131FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99AE8B0F-A9E7-40F1-8DFB-6ADE7274E835}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99AE8B0F-A9E7-40F1-8DFB-6ADE7274E835}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99AE8B0F-A9E7-40F1-8DFB-6ADE7274E835}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99AE8B0F-A9E7-40F1-8DFB-6ADE7274E835}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8DE9E02-18C6-4071-9FA7-488B525CCD85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8DE9E02-18C6-4071-9FA7-488B525CCD85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8DE9E02-18C6-4071-9FA7-488B525CCD85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8DE9E02-18C6-4071-9FA7-488B525CCD85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3323319E-C242-48A2-94BA-0EE0830131FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3323319E-C242-48A2-94BA-0EE0830131FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3323319E-C242-48A2-94BA-0EE0830131FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3323319E-C242-48A2-94BA-0EE0830131FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

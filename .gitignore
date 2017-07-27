@@ -1,0 +1,9 @@
+/Build
+/packages
+/Chatty.Client/obj
+/Chatty.Server/obj
+/Chatty.Protocol/obj
+
+/Chatty.Client/.vs
+/Chatty.Server/.vs
+/Chatty.Protocol/.vs
