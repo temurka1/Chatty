@@ -52,7 +52,14 @@ namespace Chatty.Server
         /// </summary>
         private IServerProtocol _serverProtocol;
 
+        /// <summary>
+        /// Объект для синхронизации доступа к activeClients
+        /// </summary>
         private readonly object lockObj = new object();
+
+        /// <summary>
+        /// Список активных клиентов
+        /// </summary>
         private readonly List<ClientData> activeClients = new List<ClientData>();
 
         /// <summary>
@@ -76,6 +83,9 @@ namespace Chatty.Server
             {
                 Timer clientsActivityCheckerTimer = new Timer(state =>
                 {
+                    // Проверим, если ли клиенты, которые были давно неактивны, если такие найдутся - то отправим сообщение, чтобы они отключились
+                    // и удалим их из списка с активными клиентами -> разошлем уведомление о том, что список активных клиентов поменялся всем клиентам
+
                     List<string> timedoutClientsIds = ActiveClients.Where(t => DateTime.Now - t.lastActive > new TimeSpan(0, 0, 0, _timeoutValue)).Select(t => t.uid).ToList();
                     foreach (string uid in timedoutClientsIds)
                     {
@@ -97,6 +107,8 @@ namespace Chatty.Server
                     {
                         _listenerSocket.Listen(10);
 
+                        // кто-то подключился, добавим его в список активных клиентов и стартанем поток, в котором будем получать данные
+                        // TODO: лучше использовать ThreadPool, это позволило бы переиспользовать отработавшие потоки, а не создавать из заново
                         ClientData connectedClient = new ClientData(Guid.NewGuid(), _listenerSocket.Accept());
 
                         ActiveClients.Add(connectedClient);

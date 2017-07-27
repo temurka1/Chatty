@@ -12,7 +12,6 @@ namespace Chatty.Protocol.Server
         private readonly Action<IServer, Packet> _OnChatMessageReceived = (server, pack) =>
         {
             Logger.Instance.Info($"Message from {pack.senderID} to { pack.data[0] }: {pack.data[1]}");
-
             server.SendMessageToClient(pack);
         };
 
@@ -46,6 +45,7 @@ namespace Chatty.Protocol.Server
             this._serverInstance = _serverInstance;
         }
 
+        /// <inheritdoc />
         public void ProcessPacketFromClient(Packet messagePacket)
         {
             // Пакеты:

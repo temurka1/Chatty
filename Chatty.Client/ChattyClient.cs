@@ -20,7 +20,7 @@ namespace Chatty.Client
         private IClientProtocol _clientProtocol;
 
         /// <inheritdoc />
-        public bool Start(IClientProtocol clientProtocol, string name, IPAddress ipAdress, int port = 4242)
+        public bool Start(IClientProtocol clientProtocol, string name, IPAddress ipAdress, int port)
         {
             _name = name;
             _clientProtocol = clientProtocol;

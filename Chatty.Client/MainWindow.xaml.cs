@@ -56,7 +56,7 @@ namespace Chatty.Client
                     OnPropertyChanged1();
                 }
             }
-            public bool   Flash
+            public bool Flash
             {
                 get { return flash; }
                 set
@@ -96,6 +96,8 @@ namespace Chatty.Client
         {
             ChattyClientProtocol protocol = new ChattyClientProtocol(client)
             {
+                // получили сообщение msg от senderId
+                //
                 uOnChatMessageReceived = (senderId, msg) =>
                 {
                     Dispatcher.Invoke(DispatcherPriority.Background, new Action(() =>
@@ -106,6 +108,8 @@ namespace Chatty.Client
                         contact.Flash = true;
                     }));
                 },
+                // получили список с активными клиентами - обновим viewmodel таким образом, чтобы для активных клиентов осталась история сообщений
+                //
                 uOnActiveClientsReceived = clients =>
                 {
                     Dispatcher.Invoke(DispatcherPriority.Background, new Action(() =>
@@ -132,6 +136,8 @@ namespace Chatty.Client
                             viewModel.Contacts.Add(cont);
                     }));
                 },
+                // нас отключили от сервера - скорее всего по таймауту, покажем кнопки для входа обратно
+                //
                 uOnDisconnectReceived = () =>
                 {
                     Dispatcher.Invoke(DispatcherPriority.Background, new Action(() =>
@@ -147,6 +153,8 @@ namespace Chatty.Client
                         viewModel.Contacts.Clear();
                     }));
                 },
+                // успешно зарегались
+                //
                 uOnRegisterReceivedUser = () =>
                 {
                     Dispatcher.Invoke(DispatcherPriority.Background, new Action(() =>
